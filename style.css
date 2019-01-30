@@ -1,0 +1,150 @@
+
+/* At mobile sizes, it's becomes a single column */
+body {
+    max-height: 100vh;
+    text-align: center;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 1fr 4fr 2fr 2fr 2fr 2fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header"
+                         "jumbotron"
+                         "col1"
+                         "col2"
+                         "col3"
+                         "col4"
+                         "footer";
+  }
+
+  .large-header {
+      display: none;
+  }
+
+  #large-cat{
+      display: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  header {
+    grid-area: header;
+    background-color: red;
+    min-height: 3rem;
+  }
+  #jumbotron {
+    background-color: lightskyblue;
+    grid-area: jumbotron;
+    font-size: 1.2rem;
+    position: relative;
+    color: white;
+  }
+  #col1 {
+    grid-area: col1;
+    background-color: white;
+    border: 2px solid black;
+    padding: 0.6rem;
+  }
+  #col2 {
+    grid-area: col2;
+    background-color: white;
+    border: 2px solid black;
+    padding: 0.6rem;
+  }
+  #col3 {
+    grid-area: col3;
+    background-color: white;
+    border: 2px solid black;
+    padding: 0.6rem;
+  }
+  #col4 {
+    grid-area: col4;
+    background-color: white;
+    border: 2px solid black;
+    padding: 0.6rem;
+  }
+
+  footer {
+    background-color: gray;
+    grid-area: footer;
+    min-height: 3rem;
+  }
+  
+/* At medium width, it becomes a 2-column layout col1 and col2 are stacked, col3 and col4 are stacked */
+  @media screen and (min-width: 540px) and (max-width: 1080px) {
+        body {
+            grid-template-rows: 1fr 8fr 1fr 1fr 0.5fr;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "header    header"        
+                                "jumbotron jumbotron"     
+                                "col1      col2"
+                                "col3      col4"          
+                                "footer    footer";
+        }
+        #large-cat {
+            display: block;
+        }
+        #small-cat {
+            display: none;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        #jumbotron {
+            background-color: lightskyblue;
+            grid-area: jumbotron;
+            font-size: 2rem;
+        }
+  }
+
+/* large feature items (the images that span all columns) have a margin that changes */
+  @media screen and (min-width: 760px) {
+        #jumbotron {
+        background-color: navy;
+        display: inline-block;
+        }
+        .overlay {
+        position: absolute;
+        bottom: 0.5em;
+        left: 1em;
+        font-size: 3rem;
+        }
+        img {
+            margin: 0;
+        }
+        #large-cat {
+            display: block;
+        }
+        #small-cat {
+        display: none;
+        }
+  }
+
+  /* The header bar changes somewhere between the 2-column and 1-column breakpoint. */
+  @media screen and (min-width: 860px) {
+        header {
+            background-color: maroon;
+        }
+        .large-header {
+            display: block;
+        }
+  }
+
+  /* At full laptop width, it is a 4-column page. */
+  @media screen and (min-width: 1080px) {
+    body {
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "header    header      header      header"        
+                             "jumbotron jumbotron   jumbotron   jumbotron"     
+                             "col1      col2        col3        col4"      
+                             "footer    footer      footer      footer";
+    }
+    p {
+        margin: 0;
+        padding: 0;
+    }
+  }
